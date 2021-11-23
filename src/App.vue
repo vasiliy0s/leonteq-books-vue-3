@@ -22,6 +22,6 @@ export default defineComponent({
   -moz-osx-font-smoothing: grayscale;
   color: var(--color-text);
   max-width: 1200px;
-  margin: 60px auto 0;
+  margin: 60px auto;
 }
 </style>
