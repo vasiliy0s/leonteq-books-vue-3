@@ -9,14 +9,14 @@
   },
   "dependencies": {
     "core-js": "3.9.1",
-    "date-fns": "^2.26.0",
-    "lodash.debounce": "^4.0.8",
-    "normalize.css": "^8.0.1",
+    "date-fns": "2.26.0",
+    "lodash.debounce": "4.0.8",
+    "normalize.css": "8.0.1",
     "vue": "3.0.0",
-    "vue3-datepicker": "^0.2.5"
+    "vue3-datepicker": "0.2.5"
   },
   "devDependencies": {
-    "@types/lodash.debounce": "^4.0.6",
+    "@types/lodash.debounce": "4.0.6",
     "@typescript-eslint/eslint-plugin": "4.18.0",
     "@typescript-eslint/parser": "4.18.0",
     "@vue/cli-plugin-babel": "4.5.0",
