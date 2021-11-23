@@ -50,6 +50,8 @@ export default defineComponent({
   }
 
   &__title {
+    @include crop-text(2);
+
     margin-top: 0.5rem;
   }
 
