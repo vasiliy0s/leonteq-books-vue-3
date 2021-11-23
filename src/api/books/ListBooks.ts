@@ -24,6 +24,7 @@ export default class ListBooks extends ApiClient {
   books: Book[] = []
   loading = false
   loadingMore = false
+  havingMore = true
 
   private booksCache: Book[] = []
   private filter: BooksListFilter = {
@@ -32,17 +33,12 @@ export default class ListBooks extends ApiClient {
     pagesCount: 1,
   }
 
-  get havingMore(): boolean {
-    const cursor = (this.filter.page - 1) * this.filter.limit +
-      (this.filter.limit - 1) * this.filter.pagesCount
-    return this.booksCache.length > cursor
-  }
-
   async load(page?: number, limit?: number): Promise<void> {
     if (page && page >= 1) {
       this.filter.page = page
-      this.filter.pagesCount = 1
     }
+
+    this.filter.pagesCount = 1
 
     if (limit && limit >= 1) this.filter.limit = limit
 
@@ -118,7 +114,9 @@ export default class ListBooks extends ApiClient {
     if (page > 0 && limit >= 0) {
       const offset = (page - 1) * limit
       const fullLimit = limit * pagesCount
+      const booksCount = books.length
       books = books.slice(offset, fullLimit)
+      this.havingMore = booksCount > books.length
     }
 
     this.books = books
