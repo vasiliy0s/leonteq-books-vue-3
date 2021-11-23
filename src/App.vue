@@ -1,16 +1,16 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <BooksShell />
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+import BooksShell from './components/books/BooksShell.vue';
 
 export default defineComponent({
   name: 'App',
+
   components: {
-    HelloWorld
+    BooksShell
   }
 });
 </script>
@@ -20,8 +20,8 @@ export default defineComponent({
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: var(--color-text);
+  max-width: 1200px;
+  margin: 60px auto 0;
 }
 </style>
