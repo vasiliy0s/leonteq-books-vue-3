@@ -67,11 +67,11 @@ export default class ListBooks extends ApiClient {
 
   async loadMore(): Promise<void> {
     try {
-      this.loadingMore = true;
+      this.loadingMore = true
       this.filter.pagesCount++
       this.filterBooks()
     } finally {
-      this.loadingMore = false;
+      this.loadingMore = false
     }
   }
 

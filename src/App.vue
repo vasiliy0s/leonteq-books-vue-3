@@ -3,8 +3,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import BooksShell from './views/books/Books.vue';
+import { defineComponent } from 'vue'
+import BooksShell from './views/books/Books.vue'
 
 export default defineComponent({
   name: 'LeonteqBooksApp',
@@ -12,7 +12,7 @@ export default defineComponent({
   components: {
     BooksShell
   }
-});
+})
 </script>
 
 <style lang="scss">

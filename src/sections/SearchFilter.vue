@@ -63,7 +63,7 @@ export default defineComponent({
 
     const searchDebounced = debounce(search, SearchDebounceTimeoutMS)
 
-    watch(dates, search);
+    watch(dates, search)
 
 
     return {
