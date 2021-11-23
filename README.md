@@ -1,24 +1,9 @@
 # leonteq-books-vue-2
 
-## Project setup
-```
-yarn install
-```
+## Project setup and run
 
-### Compiles and hot-reloads for development
-```
+```sh
+nvm use # if you have Node versions manager, or manually install Node.js of version in .nvmrc
+yarn install
 yarn serve
 ```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
