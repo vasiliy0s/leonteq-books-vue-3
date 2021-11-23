@@ -1,5 +1,8 @@
 <template>
-  <books-grid :books="listBooks.books"/>
+  <section class="books-shell">
+    <h1 class="books-shell__title">Books</h1>
+    <books-grid :books="listBooks.books"/>
+  </section>
 </template>
 
 <script lang="ts">
@@ -25,3 +28,13 @@ export default defineComponent({
   }
 })
 </script>
+
+<style lang="scss" scoped>
+.books-shell {
+  padding: 0 2rem;
+
+  &__title {
+    margin-bottom: 2.4rem;
+  }
+}
+</style>

@@ -30,6 +30,5 @@ export default defineComponent({
   display: grid;
   grid-gap: 2rem;
   grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
-  padding: 0 2rem;
 }
 </style>

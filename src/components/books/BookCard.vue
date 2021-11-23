@@ -42,6 +42,12 @@ export default defineComponent({
   padding: 1rem;
   border: 1px solid var(--color-border);
   border-radius: 0.5rem;
+  background: white;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
+  }
 
   &__title {
     margin-top: 0.5rem;
