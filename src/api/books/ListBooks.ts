@@ -1,5 +1,7 @@
 import BookDto from '@/dto/BookDto'
 import ApiClient from '../base/ApiClient'
+import endOfDay from 'date-fns/endOfDay'
+import startOfDay from 'date-fns/startOfDay'
 
 interface Book extends BookDto {
   normalizedTitle: string
@@ -14,31 +16,41 @@ interface BooksListFilter {
   publishDateTo?: string
 }
 
+type SearchFilter = Pick<BooksListFilter, 'title' | 'publishDateFrom' | 'publishDateTo'>
+
 
 export default class ListBooks extends ApiClient {
   books: Book[] = []
+  loading = false
 
   private booksCache: Book[] = []
-  private filter: BooksListFilter = {
+  private queryParams: BooksListFilter = {
     page: 1,
-    limit: 10
+    limit: 12
   }
 
-  async load(page: number = this.filter.page, limit = this.filter.limit): Promise<void> {
-    this.filter = { page, limit }
+  async load(page?: number, limit?: number): Promise<void> {
+    if (page && page >= 1) this.queryParams.page = page
+    if (limit && limit >= 1) this.queryParams.limit = limit
 
-    // Specific realisation for the provided API
-    if (!this.booksCache.length) {
-      const books = await this.fetchJson<BookDto[]>('GET', 'Books')
-      this.saveBooksCache(books)
+    try {
+      // Specific realisation for the given API
+      if (!this.booksCache.length) {
+        this.loading = true
+        const books = await this.fetchJson<BookDto[]>('GET', 'Books')
+        this.saveBooksCache(books)
+      }
+
+      this.filterBooks()
+
+    } finally {
+      this.loading = false
     }
-
-    this.filtrate()
   }
 
-  async search(filter: Pick<BooksListFilter, 'title' | 'publishDateFrom' | 'publishDateTo'>): Promise<void> {
-    Object.assign(this.filter, filter)
-    this.load()
+  async search(filter: SearchFilter): Promise<void> {
+    this.queryParams = { ...this.queryParams, ...filter }
+    await this.load()
   }
 
   private saveBooksCache(books: BookDto[]) {
@@ -49,15 +61,14 @@ export default class ListBooks extends ApiClient {
     }))
   }
 
-  private filtrate() {
+  private filterBooks() {
     let books = this.booksCache.slice()
-
-    const { title, publishDateFrom: publishDateFrom, publishDateTo, page, limit } = this.filter;
+    const { title, publishDateFrom: publishDateFrom, publishDateTo, page, limit } = this.queryParams;
     const titleNormalized = title?.trim().toLowerCase() || null
-    const publishDateFromMS = publishDateFrom && new Date(publishDateFrom).getTime()
-    const publishDateToMS = publishDateTo && new Date(publishDateTo).getTime()
+    const publishDateFromMS = publishDateFrom && startOfDay(new Date(publishDateFrom)).getTime()
+    const publishDateToMS = publishDateTo && endOfDay(new Date(publishDateTo)).getTime()
 
-    if (title || publishDateFromMS) {
+    if (titleNormalized || publishDateFromMS || publishDateToMS) {
       books = books.filter(book => {
         let result = true
 

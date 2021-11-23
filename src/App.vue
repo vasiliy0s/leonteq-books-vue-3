@@ -4,7 +4,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import BooksShell from './components/books/BooksShell.vue';
+import BooksShell from './views/books/Books.vue';
 
 export default defineComponent({
   name: 'App',
