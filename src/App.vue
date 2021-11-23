@@ -7,7 +7,7 @@ import { defineComponent } from 'vue';
 import BooksShell from './views/books/Books.vue';
 
 export default defineComponent({
-  name: 'App',
+  name: 'LeonteqBooksApp',
 
   components: {
     BooksShell

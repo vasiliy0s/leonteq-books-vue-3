@@ -12,7 +12,7 @@
 import { defineComponent, reactive, onBeforeMount } from 'vue'
 import ListBooks from '@/api/books/ListBooks'
 import BooksGrid from '@/components/books/BooksGrid.vue'
-import SearchFilter from '@/components/SearchFilter.vue'
+import SearchFilter from '@/sections/SearchFilter.vue'
 
 export default defineComponent({
   name: 'Books',

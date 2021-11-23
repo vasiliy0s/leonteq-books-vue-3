@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-import BookDto from '@/dto/Book'
+import BookDto from '@/dto/BookDto'
 import { defineComponent, PropType } from 'vue'
 import BookCard from './BookCard.vue'
 

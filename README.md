@@ -1,4 +1,4 @@
-# leonteq-books-vue-2
+# leonteq-books-vue-3
 
 ## Project setup and run
 

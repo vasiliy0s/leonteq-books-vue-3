@@ -46,7 +46,7 @@ export default defineComponent({
   transition: all 0.3s ease-in-out;
 
   &:hover {
-    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
+    box-shadow: 1px 1px 4px var(--color-shadow);
   }
 
   &__title {
