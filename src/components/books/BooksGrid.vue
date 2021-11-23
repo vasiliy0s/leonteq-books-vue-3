@@ -1,5 +1,5 @@
 <template>
-  <div class="books">
+  <div class="books-grid">
     <book-card v-for="book in books" :key="book.id" :book="book"/>
   </div>
 </template>
@@ -26,7 +26,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.books {
+.books-grid {
   display: grid;
   grid-gap: 2rem;
   grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));

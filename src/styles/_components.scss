@@ -1,0 +1,19 @@
+.c {
+  &-button {
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-border);
+    background: white;
+
+    &:active {
+      background: rgba(255,255,255,0.8)
+    }
+  }
+
+  &-input {
+    height: 2rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-border);
+  }
+}

@@ -1,16 +1,25 @@
 <template>
   <div class="search-filter">
-    <input class="search-filter__title-input" type="text" v-model="title" name="title" @input="searchDebounced" placeholder="Search for book title...">
+    <input
+      class="c-input"
+      type="text"
+      v-model="title"
+      name="title"
+      @input="searchDebounced"
+      placeholder="Search for book title..."
+    />
 
     <div class="search-filter__dates">
       <datepicker
         v-model="dates.publishDateFrom"
+        class="c-input"
         :upper-limit="dates.publishDateTo || today"
         placeholder="From publish date"
         clearable
       />
       <datepicker
         v-model="dates.publishDateTo"
+        class="c-input"
         :lower-limit="dates.publishDateFrom"
         :upper-limit="today"
         placeholder="To publish date"
@@ -74,13 +83,6 @@ export default defineComponent({
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-
-  :deep(input) {
-    height: 2rem;
-    padding: 0.2rem 0.5rem;
-    border-radius: 0.5rem;
-    border: 1px solid var(--color-border);
-  }
 
   &__dates {
     display: flex;
