@@ -8,3 +8,5 @@ nvm use # if you have Node versions manager, or manually install Node.js of vers
 yarn install
 yarn serve
 ```
+
+Then open <http://localhost:8090/> in your favorite browser
